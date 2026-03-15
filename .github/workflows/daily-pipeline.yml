@@ -26,7 +26,7 @@ jobs:
       PUSHOVER_PRIORITY: ${{ vars.PUSHOVER_PRIORITY }}
       PUSHOVER_TTL: ${{ vars.PUSHOVER_TTL }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - uses: kaihendry/actions/goredo@main
 

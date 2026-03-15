@@ -31,4 +31,4 @@ jobs:
       - uses: kaihendry/actions/goredo@main
 
       - name: Run pipeline
-        run: redo
+        run: redo -f all

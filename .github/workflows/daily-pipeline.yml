@@ -1,0 +1,34 @@
+name: Daily Pipeline
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    env:
+      METEOBLUE_API_KEY: ${{ secrets.METEOBLUE_API_KEY }}
+      LAT: ${{ secrets.LAT }}
+      LNG: ${{ secrets.LNG }}
+      PUSHOVER_TOKEN: ${{ secrets.PUSHOVER_TOKEN }}
+      PUSHOVER_USER: ${{ secrets.PUSHOVER_USER }}
+      FORECAST_DAYS: ${{ vars.FORECAST_DAYS }}
+      METEOBLUE_TEMPERATURE_UNIT: ${{ vars.METEOBLUE_TEMPERATURE_UNIT }}
+      METEOBLUE_WINDSPEED_UNIT: ${{ vars.METEOBLUE_WINDSPEED_UNIT }}
+      METEOBLUE_PRECIPITATION_UNIT: ${{ vars.METEOBLUE_PRECIPITATION_UNIT }}
+      METEOBLUE_IMAGE_TYPE: ${{ vars.METEOBLUE_IMAGE_TYPE }}
+      PUSHOVER_TITLE: ${{ vars.PUSHOVER_TITLE }}
+      PUSHOVER_IMAGE_TITLE: ${{ vars.PUSHOVER_IMAGE_TITLE }}
+      PUSHOVER_IMAGE_MESSAGE: ${{ vars.PUSHOVER_IMAGE_MESSAGE }}
+      PUSHOVER_DEVICE: ${{ vars.PUSHOVER_DEVICE }}
+      PUSHOVER_PRIORITY: ${{ vars.PUSHOVER_PRIORITY }}
+      PUSHOVER_TTL: ${{ vars.PUSHOVER_TTL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: kaihendry/actions/goredo@main
+
+      - name: Run pipeline
+        run: redo

@@ -1,6 +1,6 @@
-# Meteoblue to Pushover pipeline
+# Meteoblue image to Pushover pipeline
 
-This repo uses `redo` to fetch a Meteoblue daily forecast, format it, and send it to Pushover.
+This repo uses `redo` to fetch a Meteoblue forecast image and send it to Pushover.
 
 ## Usage
 
@@ -10,12 +10,11 @@ Run the default pipeline:
 redo
 ```
 
+This builds `all`, which sends `forecast-image-pushover.sent.json`.
+
 Or run the individual stages:
 
 ```sh
-redo forecast.json
-redo forecast-message.txt
-redo forecast-pushover.sent.json
 redo forecast-image.png
 redo forecast-image-pushover.sent.json
 ```

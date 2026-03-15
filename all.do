@@ -1,4 +1,4 @@
 #!/bin/sh -eu
 
-redo-ifchange forecast-pushover.sent.json
-cp forecast-pushover.sent.json "$3"
+redo-ifchange forecast-image-pushover.sent.json
+cp forecast-image-pushover.sent.json "$3"
